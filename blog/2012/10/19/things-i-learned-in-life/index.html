@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Things I Learned in Life - JonLz's Coding Blog</title>
+  <meta name="author" content="Jon">
+
+  
+  <meta name="description" content="Conway&#8217;s Game of Life If you aren&#8217;t familiar with Conway&#8217;s Game of Life, it&#8217;s a set of rules that simulates cellular &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="JonLz's Coding Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">JonLz's Coding Blog</a></h1>
+  
+    <h2>A whipsaw journey through Ruby and Rails.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:JonLz.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/coding-timeline">Coding Timeline</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Things I Learned in Life</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-19T16:22:00-04:00" pubdate data-updated="true">Oct 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Conway&#8217;s Game of Life</h2>
+
+<p>If you aren&#8217;t familiar with Conway&#8217;s Game of Life, it&#8217;s a set of rules that simulates cellular evolution based on the initial state of a group of cells.  The game consists of a simple ruleset that algorithmically determines a cell&#8217;s state based on its surroundings.  It&#8217;s simple in practice but some of the resulting evolutions are fascinating.  It&#8217;s also a great advanced beginner programming challenge!</p>
+
+<!--more-->
+
+
+<hr/>
+
+
+<p>Here are the rules courtesy of Wikipedia:</p>
+
+<p>The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of
+which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours,
+which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the
+following transitions occur:</p>
+
+<ul>
+<li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+<li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+<li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
+<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+</ul>
+
+
+<p>The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.</p>
+
+<p>Example:<br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif" alt="Glider" /></p>
+
+<hr/>
+
+
+<h2>Programming it in Ruby</h2>
+
+<p>I think the approach I took was rather brute force but it worked rather well and is fairly intuitive (at least to me it is!).  My approach was to create a blank board of size rows x cols and set the state with a pre-defined array of living cells.  I then iterate through each successive state by checking each cell, counting the number of alive neighbors, and applying the rules of the game to determine whether to kill the cell, let it live, or bring it to life.  Simple enough right?</p>
+
+<p>If you want to follow along here is <a href="https://github.com/JonLz/rubysamples/blob/master/conways%20game%20of%20life.rb" target="_blank">my solution</a></p>
+
+<h3>The Board</h3>
+
+<p>I represented the board with a 2 dimensional array and here I learned something really useful.  And I thought this was going to be the easy part!  This was my first attempt at creating the @board array:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@board = Array.new(@rows, Array.new(@cols, DEAD_CELL))</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+This code looks really intuitive at first glance.  Create a new array with @rows number of rows, and in each of those rows create a new array with @cols number of cols with default values of DEAD_CELLs which is a constant that has the character for the dead cells in it.  But what this is really doing is creating an array where <strong>ALL</strong> of your columns are just references to the same column array!</p>
+
+<p>I was tearing my hair out trying to figure out why this wasn&#8217;t working until I went back to look at the documentation for Array.new which reads <strong>new(size=0, obj=nil)</strong>.  It clicked, aha it references to an object.  So you actually need to use the block method of array creation: <strong>new(size) {|index| block }</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@board = Array.new(@rows) {Array.new(@cols, DEAD_CELL)}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+So remarkably similar but it&#8217;s actually creating new arrays in memory each time now.</p>
+
+<h3>Iterating States</h3>
+
+<p>The code to cycle through each cell on the board isn&#8217;t very exciting but I did run into another problem.  I guess I didn&#8217;t learn my referencing problem from my board creation fiasco but this is something I really didn&#8217;t even know <em>could</em> be a problem.</p>
+
+<p>My iteration technique was to create a new blank board which would become the next iterative state based on the current state of the actual @board instance variable.  This is how I did it at first:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def initialize
+</span><span class='line'>  ...initialize the board code...
+</span><span class='line'>  @static_board = @board
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>def next_state
+</span><span class='line'>  new_board = @static_board
+</span><span class='line'>  ...iterative code...
+</span><span class='line'>  @board = new_board
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>This problem tied me up for a good hour trying to figure out what the heck was going on.  I was dumping puts statements everywhere to try and see what iteration I was on, what the iterator values were, the row and column variables, the number of alive neighbors, etc etc.  It wasn&#8217;t until I went so far as to spit the board out on every successive cell check that I figured out what was happening.  My new board and static board were all actually just references to the original board so I was never actually creating a fresh new board!  Every time I would &#8220;set&#8221; my new board, the actual @board would get altered and it drove me nuts.  Oh the irony.  Here is my working version:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def initialize
+</span><span class='line'>  @board = base_array
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>def base_array
+</span><span class='line'>  Array.new(@rows) {Array.new(@cols, DEAD_CELL)}
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>def next_state
+</span><span class='line'>  new_board = base_array
+</span><span class='line'>  ...iterative code...
+</span><span class='line'>  @board = new_board
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h3>Other Notes</h3>
+
+<p>Another neat trick when working with 2d arrays is that you can do this to loop through every surrounding cell easily.  It&#8217;s pretty great that you can use each on something as basic as a range and it just works as you would expect it to.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(-1..1).each do |x|
+</span><span class='line'>  (-1..1).each do |y|</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Coincidentally, I wish I had thought about this when I was writing my word scramble solver as when I did that I hardcoded an array of all adjacent cells. :)</p>
+
+<p>You can also override the to_s function and make your own, so that every time you call your objects inspect method it will run your own to_s.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def Game
+</span><span class='line'>  def to_s
+</span><span class='line'>    puts "hi"
+</span><span class='line'>  end
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>p Game.new # "hi" is displayed</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;d recommend if you&#8217;re comfortable with array iteration to give this game a try, it&#8217;s a great learning exercise and fun to play around once you&#8217;ve got it all working.  Long live R-Pentomino!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jon</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-19T16:22:00-04:00" pubdate data-updated="true">Oct 19<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/2d-arrays/'>2d arrays</a>, <a class='category' href='/blog/categories/conway-s-game-of-life/'>Conway's Game of Life</a>, <a class='category' href='/blog/categories/arrays/'>arrays</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/variable-references/'>variable references</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life/" data-via="LzJon" data-counturl="http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/19/september-2012/" title="Previous Post: September 2012">&laquo; September 2012</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/22/guard-livereload-and-spork/" title="Next Post: Guard, LiveReload, and Spork">Guard, LiveReload, and Spork &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/18/october-2012/">October 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/22/guard-livereload-and-spork/">Guard, LiveReload, and Spork</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/19/things-i-learned-in-life/">Things I Learned in Life</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/19/september-2012/">September 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/19/august-2012/">August 2012</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/JonLz">@JonLz</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'JonLz',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("LzJon", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/LzJon" class="twitter-follow-button" data-show-count="false">Follow @LzJon</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Jon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

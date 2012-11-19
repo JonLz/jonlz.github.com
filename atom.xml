@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[JonLz's Coding Blog]]></title>
+  <link href="http://JonLz.github.com/atom.xml" rel="self"/>
+  <link href="http://JonLz.github.com/"/>
+  <updated>2012-11-19T00:42:01-05:00</updated>
+  <id>http://JonLz.github.com/</id>
+  <author>
+    <name><![CDATA[Jon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[October 2012]]></title>
+    <link href="http://JonLz.github.com/blog/2012/11/18/october-2012/"/>
+    <updated>2012-11-18T23:09:00-05:00</updated>
+    <id>http://JonLz.github.com/blog/2012/11/18/october-2012</id>
+    <content type="html"><![CDATA[<p>October ended up being a great month for my programming career. I feel a lot better versed in ruby syntax and started becoming a lot more confident in rails. I&#8217;m able to think up solutions to problems in much more programmatical/organized manner and am slowly beginning to understand how the basic rails information flow works. I still don&#8217;t quite understand routing as I&#8217;m still creating routes by hand and not using the built in rails paths. Maybe I need to read up on REST, but I&#8217;m definitely going to be focusing on this next month.</p>
+
+<p>My git workflow is getting a lot more effortless as well. I need to begin working on some open source projects to learn collaboration skills on projects but my use of git-fu for source control is strong now. I&#8217;ll be creating a page for my most used git commands and any cool ones I discover, I&#8217;m still looking up new ones almost daily or trying to refine my workflow.</p>
+
+<p>I&#8217;m also slowly starting to become more competent in javascript, jquery, and css which is definitely showing up as I work through rails views. Next up is understanding json and how to have rails serve up friendly javascript variables to my views. I&#8217;m sure theres millions of helpers/gems available out there - it&#8217;ll be time to find them and report back here when I do. I don&#8217;t think my projects are big enough to get going with backbone and node yet (or would even need node for the architectures I&#8217;m using) but it&#8217;s good to have some working knowledge of them as I pursue full-stack programming.</p>
+
+<p>Last but not least, I finally got tired of my windows IDE and I&#8217;m working on setting up a new Mac, monitor, and programming environment. Time to learn all the bash commands I&#8217;ve been missing out on.</p>
+
+<!-- more -->
+
+
+<p>Refer to my <a href="http://JonLz.github.com/coding-timeline">Coding Timeline</a> for all the links to the items discussed here.</p>
+
+<h2>Things I worked on:</h2>
+
+<h3>Rails Projects: Blackjack</h3>
+
+<p>This was a project I honestly can&#8217;t recall how I discovered.  I most likely stumbled upon it during one of my hack googling sessions in search of an answer to some beginner programming question.  It&#8217;s a great little tutorial which was built by Tim Jensen presumably after he finished Michael Hartl&#8217;s Rails Tutorial app.  It leverages a lot of the code from that tutorial and breezes through it but then slows down to go through the actual coding of a pretty decent blackjack rails based game.</p>
+
+<p>I would say it&#8217;s great practice to go through the full setup from start to finish of creating a new rails app and brining it to fruition. Lots of concepts are explained, especially the use of AJAX to make a responsive blackjack UI with images and buttons. The code tests are shown as well which is doubly nice.</p>
+
+<h3>Ruby Projects: Word Scramble, Conway&#8217;s Game of Life</h3>
+
+<p>I&#8217;ll just discuss my word scramble solver here quickly as I already posted a pretty lengthy walkthrough of my Conway&#8217;s Game of Life program. I really enjoy the word scramble game by Zynga on my phone so naturally I tried to create a solver program for the game.  Not to cheat at the game, but for my edification and to see how my ruby skills had been coming along. It was essentially created in a hack&#8217;y fashion as I used an array of coordinates so I would know each cell&#8217;s neighbors during the recursive calls. Not elegant, but functional. Other than that, it builds the word, then checks it against a dictionary and returns a list of the highest scoring words to the user. Oh, I learned a lot about hashes too. Hashes are epic.</p>
+
+<p>Well it was a great success and introduced some new concepts and solidified my understanding of how classes and methods work. I&#8217;m pretty proud of it and would love to get this up on a rails framework so it&#8217;s easier to use when I have more time.</p>
+
+<h3>Reddit dailyprogrammer</h3>
+
+<p>This is a pretty nice, updated daily as the name indicates, collection of programming challenges that you can attempt to solve to stretch your programming skills. They come in beginner, intermediate, and advanced varieties and programmers from all kinds of backgrounds submit their answers and discuss the problems in great detail. So far I haven&#8217;t solved any advanced (too time consuming for me), only a handful of intermediates, and all the beginner challenges I&#8217;ve seen. Ruby seems somewhat under-represented in the forums but you can usually find one or two ruby solutions. I see mostly python and C/C++ which is interesting to compare my solution to those.  Ruby is almost always shorter in terms of lines of code and readability. I&#8217;m not sure about performance but it&#8217;s fun seeing a solution in another language that&#8217;s 30 some odd lines of code vs. mine which is 5.</p>
+
+<h3>Bastard&#8217;s Book of Ruby</h3>
+
+<p>This is a great resource that discusses web scraping and some more practical uses of ruby as a scripting language instead of the usual focus on OOP and rails. I like that the author takes time to explain ruby from a beginner&#8217;s perspective and then dives right into how useful it can be with real examples. I&#8217;m still at the point where I consider myself a beginner and although I understood all of the things he was talking about they were all still very useful. Nokogiri and Mechanize are two really amazing gems and all new rubyists should at least be aware they&#8217;re out there. The basic process involves opening URIs and then capturing data from HTML tags or files, etc. It reminds me of a cURL scripting tool written in ruby. You can do some really cool data harvesting and harness the power of ruby to tame web pages which may not be so nice. I haven&#8217;t even begun to scratch the surface here but it&#8217;s already drawn me in.</p>
+
+<h3>Ruby Warrior</h3>
+
+<p>This project tasks you with fighting your way out of various dungeons and gradually gives you more tools to do so. You start off only able to walk in one direction and gradually gain the ability to swing swords, rescue captives, and cast spells. It&#8217;s also a super useful and FUN way to learn ruby. You begin with simple control flow but then slowly need to start accounting for different variables and conditions which forces you to create other methods and classes. You never really feel like you&#8217;re programming as you&#8217;re worrying about solving the puzzle of how to get past the stage but at the same time you&#8217;re writing real code and learning a lot in the process.</p>
+
+<p>There are two stages, beginner and intermediate, and two modes, original and time-attack which give you all kinds of challenges and keep you engaged. The beginner mode is pretty straightforward with just a single path to walk down but the intermediate level gets complicated a lot faster as the map becomes open ended and you get a lot more choices. In original mode you play through each level and only have to account for the variables of that level. In time-attack you start from level 1 and keep going until you die: the goal being to get to the end with one file of code.</p>
+
+<p>Simply a great way to learn ruby and has enough competitive elements to keep you interested. I highly recommend this one! I still need to make my way through the intermediate level. Oh, I was able to introduce the beginner version of this game to my girlfriend, who doesn&#8217;t have any programming experience, and she was super absorbed by it - it&#8217;s that deceptively great at teaching in a gameified way.</p>
+
+<h3>Code School and Code Academy</h3>
+
+<p>I think these are pretty self-explanatory but I have to include them here. They offer tons of modules covering a gamut of programming topics and walk you through from the beginning. Git, backbone.js, node.js, jQuery, javascript, html, css, ruby, rails, rspec are among the ones I can recall being covered between these 2. Code School costs money for premium modules and Code Academy is free. Code School is definitely the more polished of the 2 and has a broader offering but Code Academy is a very good alternative and is more project based whereas Code School is video/exam based. This is a great way to get introduced to other web technologies if you aren&#8217;t yet familiar (especially javascript based). Like it or not everyone needs to know some java.</p>
+
+<h2>Accomplishments</h2>
+
+<ul>
+<li>Picked up a lot of ancillary knowledge around other web technologies (Javascript, jQuery, Backbone, Node - thanks Code School)</li>
+<li>Learned a lot more of the ins and outs of git</li>
+<li>Completed a new rails app from scratch - picked up some AJAX knowledge</li>
+<li>Became familiar with basic regex syntax</li>
+</ul>
+
+
+<h2>Goals For November</h2>
+
+<ul>
+<li>Start work on a larger rails project</li>
+<li>Study rails routing</li>
+<li>Read books on ruby as I plan to be working more on Rails</li>
+<li>Work on an open source project [from September]</li>
+<li>Write tests for all my ruby code [from September]</li>
+</ul>
+
+
+<h2>Goals From September</h2>
+
+<ul>
+<li>Start work on a rails project &#8211; COMPLETE</li>
+<li>Learn more about git workflow and collaboration &#8211; COMPLETE</li>
+<li>Work on an open source project &#8211; FAIL</li>
+<li>Write tests for all my ruby code &#8211; FAIL</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Guard, LiveReload, and Spork]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/22/guard-livereload-and-spork/"/>
+    <updated>2012-10-22T11:31:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/22/guard-livereload-and-spork</id>
+    <content type="html"><![CDATA[<p>I sat down last night and started getting back into Rails finally.  I feel like I&#8217;m at a point with ruby now where I&#8217;m pretty comfortable with basic syntax and program flow.  I probably spent a little more time than I would have liked to getting up to speed with ruby since my main aim is to build web apps but damn if ruby programming isn&#8217;t just <em>fun</em>.</p>
+
+<p>As part of my rails project I made sure to set it up so I could do it in a TDD way.  I kept hearing great things about Guard (a ruby gem) on the rogues podcast and a couple of other places (the rails tutorial by Michael Hartl also talks about it) so I gave it a try.  Long story short, this thing is amazing.</p>
+
+<!--more-->
+
+
+<p>Guard is a gem that watches for file changes in your working folders (i.e. when you save a file you&#8217;re working on) and automatically performs actions when that file changes.  It&#8217;s most commonly used to automatically run tests on files when you save.  The only problem is this can get slow very fast since tests have to generate and run your entire rails server every time.  This is where spork comes in.  Spork basically speeds up your tests by running a server in the background that stays up instead of being regenerated every time your tests are run.</p>
+
+<p>Live Reload lets you do the same guard-esque features with your actual browser by reloading the browser automatically any time you make changes to files that alter the source files (i.e. HTML, CSS, JS).  It seems simplistic but it&#8217;s positively addicting and makes it easy to see exactly how the code you&#8217;re writing impacts the front-end views.</p>
+
+<p>These are all great in their own rights but truly amazing when paired together as they are synergistic tools.  You can automate all of these tasks by linking them into your guard gem.  This way you just run guard once and it will run your spork server, livereload server, and then watch your files for automatic testing (both for tests and for livereload).  Now your tests are blazingly fast, and you can get instant feedback on your code changes directly in your browser!</p>
+
+<p>I didn&#8217;t have too much difficulty setting any of this up thanks to the RailsCasts videos.  There it&#8217;s covered in great depth and you can see some of the nuances:<br/>
+<a href="http://railscasts.com/episodes/264-guard">RailsCasts - Guard</a><br/>
+<a href="http://railscasts.com/episodes/285-spork">RailsCasts - Spork</a></p>
+
+<p>Here are the gems if you&#8217;re curious:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'guard'
+</span><span class='line'>gem 'guard-livereload' 
+</span><span class='line'>gem 'guard-spork'       #these gems automatically include the dependency gems 'livereload' and 'spork'</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Time to get cracking on some Rails now that the testing hell has been alleviated.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Things I Learned in Life]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life/"/>
+    <updated>2012-10-19T16:22:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life</id>
+    <content type="html"><![CDATA[<h2>Conway&#8217;s Game of Life</h2>
+
+<p>If you aren&#8217;t familiar with Conway&#8217;s Game of Life, it&#8217;s a set of rules that simulates cellular evolution based on the initial state of a group of cells.  The game consists of a simple ruleset that algorithmically determines a cell&#8217;s state based on its surroundings.  It&#8217;s simple in practice but some of the resulting evolutions are fascinating.  It&#8217;s also a great advanced beginner programming challenge!</p>
+
+<!--more-->
+
+
+<hr/>
+
+
+<p>Here are the rules courtesy of Wikipedia:</p>
+
+<p>The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of
+which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours,
+which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the
+following transitions occur:</p>
+
+<ul>
+<li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+<li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+<li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
+<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+</ul>
+
+
+<p>The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.</p>
+
+<p>Example:<br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif" alt="Glider" /></p>
+
+<hr/>
+
+
+<h2>Programming it in Ruby</h2>
+
+<p>I think the approach I took was rather brute force but it worked rather well and is fairly intuitive (at least to me it is!).  My approach was to create a blank board of size rows x cols and set the state with a pre-defined array of living cells.  I then iterate through each successive state by checking each cell, counting the number of alive neighbors, and applying the rules of the game to determine whether to kill the cell, let it live, or bring it to life.  Simple enough right?</p>
+
+<p>If you want to follow along here is <a href="https://github.com/JonLz/rubysamples/blob/master/conways%20game%20of%20life.rb" target="_blank">my solution</a></p>
+
+<h3>The Board</h3>
+
+<p>I represented the board with a 2 dimensional array and here I learned something really useful.  And I thought this was going to be the easy part!  This was my first attempt at creating the @board array:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@board = Array.new(@rows, Array.new(@cols, DEAD_CELL))</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+This code looks really intuitive at first glance.  Create a new array with @rows number of rows, and in each of those rows create a new array with @cols number of cols with default values of DEAD_CELLs which is a constant that has the character for the dead cells in it.  But what this is really doing is creating an array where <strong>ALL</strong> of your columns are just references to the same column array!</p>
+
+<p>I was tearing my hair out trying to figure out why this wasn&#8217;t working until I went back to look at the documentation for Array.new which reads <strong>new(size=0, obj=nil)</strong>.  It clicked, aha it references to an object.  So you actually need to use the block method of array creation: <strong>new(size) {|index| block }</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@board = Array.new(@rows) {Array.new(@cols, DEAD_CELL)}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+So remarkably similar but it&#8217;s actually creating new arrays in memory each time now.</p>
+
+<h3>Iterating States</h3>
+
+<p>The code to cycle through each cell on the board isn&#8217;t very exciting but I did run into another problem.  I guess I didn&#8217;t learn my referencing problem from my board creation fiasco but this is something I really didn&#8217;t even know <em>could</em> be a problem.</p>
+
+<p>My iteration technique was to create a new blank board which would become the next iterative state based on the current state of the actual @board instance variable.  This is how I did it at first:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def initialize
+</span><span class='line'>  ...initialize the board code...
+</span><span class='line'>  @static_board = @board
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>def next_state
+</span><span class='line'>  new_board = @static_board
+</span><span class='line'>  ...iterative code...
+</span><span class='line'>  @board = new_board
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>This problem tied me up for a good hour trying to figure out what the heck was going on.  I was dumping puts statements everywhere to try and see what iteration I was on, what the iterator values were, the row and column variables, the number of alive neighbors, etc etc.  It wasn&#8217;t until I went so far as to spit the board out on every successive cell check that I figured out what was happening.  My new board and static board were all actually just references to the original board so I was never actually creating a fresh new board!  Every time I would &#8220;set&#8221; my new board, the actual @board would get altered and it drove me nuts.  Oh the irony.  Here is my working version:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def initialize
+</span><span class='line'>  @board = base_array
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>def base_array
+</span><span class='line'>  Array.new(@rows) {Array.new(@cols, DEAD_CELL)}
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>def next_state
+</span><span class='line'>  new_board = base_array
+</span><span class='line'>  ...iterative code...
+</span><span class='line'>  @board = new_board
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h3>Other Notes</h3>
+
+<p>Another neat trick when working with 2d arrays is that you can do this to loop through every surrounding cell easily.  It&#8217;s pretty great that you can use each on something as basic as a range and it just works as you would expect it to.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(-1..1).each do |x|
+</span><span class='line'>  (-1..1).each do |y|</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Coincidentally, I wish I had thought about this when I was writing my word scramble solver as when I did that I hardcoded an array of all adjacent cells. :)</p>
+
+<p>You can also override the to_s function and make your own, so that every time you call your objects inspect method it will run your own to_s.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def Game
+</span><span class='line'>  def to_s
+</span><span class='line'>    puts "hi"
+</span><span class='line'>  end
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>p Game.new # "hi" is displayed</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;d recommend if you&#8217;re comfortable with array iteration to give this game a try, it&#8217;s a great learning exercise and fun to play around once you&#8217;ve got it all working.  Long live R-Pentomino!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[September 2012]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/19/september-2012/"/>
+    <updated>2012-10-19T14:33:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/19/september-2012</id>
+    <content type="html"><![CDATA[<p>September was a whirlwind of a month of balancing my newfound obsession with ruby and other things in life.  I managed to learn a LOT and hopefully not shirk too much of my real life (apologies if I did to friends and loved ones).  I got through an entire book on ruby, finished the rails tutorial, started listening to a ruby programming podcast, and found an awesome new ruby training resource.</p>
+
+<p>I learned what technical debt was (in a nutshell, payoffs now for the tradeoff of necessary refactoring and upgrading code later) and wow does this apply to new programmers who are basically crushed by a mountain of technical debt. The only thing you can do is take it a day at a time and a project at a time.  Always be coding. Constantly improve your skills!</p>
+
+<p>There&#8217;s also so much to love about the ruby community I don&#8217;t even know where to start.  The amount of knowledge I was able to gather for free is astounding.  I think the only thing I&#8217;ve paid for up until this point is The Well Grounded Rubyist book and it feels like I&#8217;ve come a long way in just one month.</p>
+
+<!-- more -->
+
+
+<p>Refer to my <a href="http://JonLz.github.com/coding-timeline">Coding Timeline</a> for all the links to the items discussed here.</p>
+
+<h2>Things I worked on:</h2>
+
+<h3>Rails Tutorial</h3>
+
+<p>This tutorial got a LOT more detailed and technical than I thought it would (and could have possibly hoped for).  I can&#8217;t stress enough that everyone should go through this entire exercise at least once, and twice if possible.</p>
+
+<h3>The Well Grounded Rubyist by David A. Black</h3>
+
+<p>What an awesome book!  David expounds on all of the core features of ruby that everyone should know and delves into some really cool topics too that I had no idea even existed.  Threads, fibers, building chat servers, what?  It&#8217;s really amazing what you can do with a good grasp of fundamentals in such a short amount of code.  This book really helped fill out my grasp of basic iterators, methods, objects, methods, classes, etc.  And I think I finally understand blocks/procs/lambdas upon going through the exercise of recoding some basic ruby iterators (each, map, times, etc.) as David recommends.  There&#8217;s a whole slew of things that I need take a second pass at but I really feel a lot more confident after reading through this once.</p>
+
+<h3>Ruby Rogues Podcast</h3>
+
+<p>I&#8217;m not even sure here to start with these guys.  I don&#8217;t know if they&#8217;re more informative or more comedical (is this a word?).  If you want to learn about what&#8217;s going on in the ruby world and the programming world at large this is what you want to listen to.  The crew is a riot and you also learn about other cool programming and non-programming topics every week as they pick and discuss their favorite tools/toys at the end of each podcast.  I&#8217;ve been listening to these during my commute and find myself sitting in my car for a few extra minutes before leaving just to listen to one of them wrap up a topic.  All anyone talks about on the radio these days is baseball anyway, can&#8217;t wait til it&#8217;s over to get back to NFL talk.. anyways.</p>
+
+<h3>Ruby Kickstart</h3>
+
+<p>I can&#8217;t recall how I found out about this but man I wish I had earlier.  It&#8217;s a series of chapters that include detailed notes and videos for each chapter and a set of problems at the end of each chapter.  There&#8217;s also an online quiz available at the website for each chapter.  It&#8217;s a bona fide self-study course in ruby.</p>
+
+<p>The great thing is you get to write working code at the end of every chapter and they <em>come built in with working tests</em>.  I can&#8217;t stress how great this is as you get to practice actual coding in a very specific and methodical way and then you can also look at the test to see how a proper test is written for the code you just wrote.  There really is no substitute for writing actual code and testing it and this acquaints you with both.  This has been the single-most helpful ruby resource I&#8217;ve found yet.  I will caution that it takes a little bit of effort to get up and running because it relies on having ruby installed and running rakes but hey - that&#8217;s icing on the cake because it&#8217;s just one more thing to learn about if you don&#8217;t know about rake yet (I hope you do because you&#8217;ve done the Rails Tutorial already right?)</p>
+
+<h2>Accomplishments</h2>
+
+<ul>
+<li>Learned a lot more about ruby fundamentals</li>
+<li>Began the steep climb up the developer progression hill</li>
+<li>Educating myself about and immersing myself in ongoing ruby issues and topics (thanks Ruby Rogues)</li>
+<li>Pushed all my work onto github</li>
+</ul>
+
+
+<h2>Goals</h2>
+
+<ul>
+<li>Start work on a rails project</li>
+<li>Learn more about git workflow and collaboration</li>
+<li>Work on an open source project</li>
+<li>Write tests for all my ruby code</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[August 2012]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/19/august-2012/"/>
+    <updated>2012-10-19T12:50:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/19/august-2012</id>
+    <content type="html"><![CDATA[<p>Since this is my first monthly update I&#8217;ll discuss a little of what I want to accomplish with these.  They are intended to be monthly snapshots of where I am along the development timeline and commentary about my goals and accomplishments.</p>
+
+<!-- more -->
+
+
+<p>Refer to my <a href="http://JonLz.github.com/coding-timeline">Coding Timeline</a> for all the links to the items discussed here.</p>
+
+<h2>Things I worked on:</h2>
+
+<h3>Rails Tutorial by Michael Hartl</h3>
+
+<p>This is a pretty awesome introduction to rails and ruby and all the other soft skills necessary to succeed as a programmer. Michael takes you through building a twitter clone in Rails.  I&#8217;ll have to go through this whole tutorial again at some point because there is just so much material to absorb here.  You will learn git, testing, rspec, partials, layouts, models, controllers, workflow, TDD (test driven development), rails, best practices, deployment, source/version control, and even some SQL, and a ton more.  It goes through how to install and setup ruby, rails, git, and heroku.</p>
+
+<p>It is very lengthy and does it&#8217;s best to hold your hand through the process but there is just an abundance of information there. Even if you don&#8217;t get it I would recommend methodically going through it just for the immersion as it really hit on all the important topics.</p>
+
+<h3>Project Euler</h3>
+
+<p>I didn&#8217;t spend a ton of time because it doesn&#8217;t have a built in ruby parser however once I got my ruby development up and running I ran through the first page or so of problems.  Great site for problem solving / code chunking that gets you thinking like a programmer.  A lot of the problems are difficult but I had a good time trying to decompose the problems into a program.</p>
+
+<h3>Rubeque</h3>
+
+<p>I spent a lot of time on this website which is a standalone ruby challenges website.  You are presented with challenges and you must fill in the correct code snippets to get the code to pass the Test::Unit cases.They start off very easy and quickly become difficult as you progress.  I did a bunch of these and had all of the ruby-doc basic class methods open - this is an awesome to way learn all the various basic class methods of arrays, strings, and hashes. Fun too.  I ended up somehow losing my github authorized account so I did them all over again with a new account and really blew through them the second time - nice indicator of progress.</p>
+
+<h3>Try Ruby and Try Git</h3>
+
+<p>Try Ruby was my first experience with ruby ever and it was very user friendly.  I remember finishing up the course and then just playing around in the irb console for quite awhile.  I actually used it for quite some time as my primary compiler until I finally installed my own ruby dev environment.  The compiler gets clunky and isn&#8217;t easy to scroll around if you plan to use it to test a bunch of code but it&#8217;s perfect as an intro tutorial to rails.</p>
+
+<p>Try Git was also my first experience with git.  It&#8217;s very helpful to learn the basic commands but I don&#8217;t think anything compares to actually creating your own projects/repos and learning the commands and ins/outs on your own. There is an awesome article I read from Hacker News about <a href="osteele.com/archives/2008/05/commit-policies">commit policies</a> that explains and visualizes alot of the git workflow.  Highly recommended.</p>
+
+<h2>Accomplishments</h2>
+
+<ul>
+<li>Setup my own ruby and rails environments</li>
+<li>Learned a lot of basic object methods - strings, arrays, hashes in ruby</li>
+<li>Basic rails skills and MVC architecture</li>
+<li>Created github, heroku, and started working on standalone projects</li>
+</ul>
+
+
+<h2>Goals</h2>
+
+<ul>
+<li>Finish Rails Tutorial</li>
+<li>Read up on more ruby books</li>
+<li>Attend more meetups</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lots to catch up on]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/16/lots-to-catch-up-on/"/>
+    <updated>2012-10-16T14:37:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/16/lots-to-catch-up-on</id>
+    <content type="html"><![CDATA[<p>Well, I&#8217;m about 2 months behind now on starting this blog but better late than never, right? I began my foray about 2 months ago and discovered the Ruby language and more importantly, the fantastic Ruby community.  I sort of stumbled into ruby because I really wanted to learn a web framework and found out about ruby on rails.  I had no idea what ruby was and thought the code in rails was pretty wickedly awesome - then I discovered it was just built on top of ruby, mindblowing.  Since then, I took a step back and dived pretty deep into ruby in order to become proficient in it.  I&#8217;m at an okay point with it now and will be venturing back into rails which should hopefully be a little easier now.  I still &lt;3 ruby though.</p>
+
+<!-- more -->
+
+
+<p>I&#8217;m going to spend a few posts talking about specific ruby idioms and programs I&#8217;ve worked on just to flesh some thoughts out, and then it&#8217;s onward to rails and other html/css stuff that is also necessary to learn.</p>
+
+<p>My goal with this blog is to stay accountable to my progress through coding and becoming a better developer.
+It&#8217;s also awesome to share things I learn with people as I&#8217;ve found in my short time in the coding community
+that everyone is super willing to help and there&#8217;s so many free resources out there.  Thanks to anyone out there reading this who contributes to open source / online education!</p>
+
+<p>Also apparently I have a hard time posting code snippets using octopress because I can&#8217;t figure out how to get python dependencies enabled.. or so I&#8217;ve been reading.  There are windows users with certain IDEs (I guess I&#8217;m one of them, yay) where Octopress can&#8217;t run the rubypython gem and load python correctly to parse the code snippet into html.  Bleck, in the meanwhile my code snippets will just be unhighlighted and unnamed.  Some day when I join the dark (light?) side and get a mac to program on maybe this will all change.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def rubyruby
+</span><span class='line'>  puts codeblock
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>
