@@ -1,0 +1,44 @@
+---
+layout: post
+title: "September 2012"
+date: 2012-10-19 14:33
+comments: true
+categories: [journey, monthly update, rails tutorial, well grounded rubyist, david black, ruby rogues, ruby kickstart]
+---
+September was a whirlwind of a month of balancing my newfound obsession with ruby and other things in life.  I managed to learn a LOT and hopefully not shirk too much of my real life (apologies if I did to friends and loved ones).  I got through an entire book on ruby, finished the rails tutorial, started listening to a ruby programming podcast, and found an awesome new ruby training resource.
+
+I learned what technical debt was (in a nutshell, payoffs now for the tradeoff of necessary refactoring and upgrading code later) and wow does this apply to new programmers who are basically crushed by a mountain of technical debt. The only thing you can do is take it a day at a time and a project at a time.  Always be coding. Constantly improve your skills!
+
+There's also so much to love about the ruby community I don't even know where to start.  The amount of knowledge I was able to gather for free is astounding.  I think the only thing I've paid for up until this point is The Well Grounded Rubyist book and it feels like I've come a long way in just one month.
+<!-- more -->
+Refer to my [Coding Timeline](/coding-timeline) for all the links to the items discussed here.
+
+Things I worked on:
+-
+###Rails Tutorial
+This tutorial got a LOT more detailed and technical than I thought it would (and could have possibly hoped for).  I can't stress enough that everyone should go through this entire exercise at least once, and twice if possible.
+
+###The Well Grounded Rubyist by David A. Black
+What an awesome book!  David expounds on all of the core features of ruby that everyone should know and delves into some really cool topics too that I had no idea even existed.  Threads, fibers, building chat servers, what?  It's really amazing what you can do with a good grasp of fundamentals in such a short amount of code.  This book really helped fill out my grasp of basic iterators, methods, objects, methods, classes, etc.  And I think I finally understand blocks/procs/lambdas upon going through the exercise of recoding some basic ruby iterators (each, map, times, etc.) as David recommends.  There's a whole slew of things that I need take a second pass at but I really feel a lot more confident after reading through this once.
+
+###Ruby Rogues Podcast
+I'm not even sure here to start with these guys.  I don't know if they're more informative or more comedical (is this a word?).  If you want to learn about what's going on in the ruby world and the programming world at large this is what you want to listen to.  The crew is a riot and you also learn about other cool programming and non-programming topics every week as they pick and discuss their favorite tools/toys at the end of each podcast.  I've been listening to these during my commute and find myself sitting in my car for a few extra minutes before leaving just to listen to one of them wrap up a topic.  All anyone talks about on the radio these days is baseball anyway, can't wait til it's over to get back to NFL talk.. anyways.
+
+###Ruby Kickstart
+I can't recall how I found out about this but man I wish I had earlier.  It's a series of chapters that include detailed notes and videos for each chapter and a set of problems at the end of each chapter.  There's also an online quiz available at the website for each chapter.  It's a bona fide self-study course in ruby.  
+
+The great thing is you get to write working code at the end of every chapter and they *come built in with working tests*.  I can't stress how great this is as you get to practice actual coding in a very specific and methodical way and then you can also look at the test to see how a proper test is written for the code you just wrote.  There really is no substitute for writing actual code and testing it and this acquaints you with both.  This has been the single-most helpful ruby resource I've found yet.  I will caution that it takes a little bit of effort to get up and running because it relies on having ruby installed and running rakes but hey - that's icing on the cake because it's just one more thing to learn about if you don't know about rake yet (I hope you do because you've done the Rails Tutorial already right?)
+
+Accomplishments
+-
++ Learned a lot more about ruby fundamentals
++ Began the steep climb up the developer progression hill
++ Educating myself about and immersing myself in ongoing ruby issues and topics (thanks Ruby Rogues)
++ Pushed all my work onto github
+
+Goals
+-
++ Start work on a rails project
++ Learn more about git workflow and collaboration
++ Work on an open source project
++ Write tests for all my ruby code
