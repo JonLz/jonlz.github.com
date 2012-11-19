@@ -9,8 +9,19 @@ footer: true
 2012
 =
 
-October 2012
+November 2012
 -
+Nov 16 - Started listening to [RailsCasts][19] by Ryan Bates  
+Nov 15 - Reading through POODR - [Practical Object-Oriented Design in Ruby][18] by Sandi Metz  
+Nov 6 - Began work on a new private startup project  
+Nov 2 - 5 - Minor downtime due to new IDE setup (Mac)  
+Nov 1 - Worked through a lot of Code School courses: Backbone, Node, jQuery  
+
+[October 2012](/blog/2012/11/18/october-2012/)
+-
+Oct 31 - Fuck Hurricane Sandy  
+Oct 30 - Finished working on [Rails Blackjack App][17]  
+Oct 20 - Started reading through and doing [Reddit dailyprogammer][16] challenges  
 Oct 19 - Created [Word Scramble (Zynga) Solver][12] and [Conway's Game of Life][13] Ruby programs  
 Oct 10 - Nokogiri / Mechanize / web scraping using [Bastard's Book of Ruby][11]  
 Oct 1 - Oct 10 - Finished Well Grounded Rubyist / [Ruby Warrior][14] (Beginner)  
@@ -33,6 +44,10 @@ Aug 23 - [Rubeque][3]
 Aug 22 - [Try Ruby][1], [Try Git][2]  
 Aug 22 - Inception  
 
+[19]: http://railscasts.com/  "RailsCasts"
+[18]: http://www.poodr.info/book 	"Practical Object-Oriented Design in Ruby"
+[17]: https://github.com/JonLz/blackjacktut		"Rails Blackjack Tutorial"
+[16]: http://www.reddit.com/r/dailyprogrammer  "Reddit dailyprogammer"
 [15]: https://github.com/JonLz/ruby-kickstart	"Ruby Kickstart Level 1-5 Solutions"
 [14]: https://github.com/ryanb/ruby-warrior		"Ruby Warrior"
 [13]: https://github.com/JonLz/rubysamples/blob/master/conways%20game%20of%20life.rb "Conway's Game of Life"
