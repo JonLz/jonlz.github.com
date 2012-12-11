@@ -4,7 +4,7 @@
   <title><![CDATA[Category: code school | JonLz's Coding Blog]]></title>
   <link href="http://JonLz.github.com/blog/categories/code-school/atom.xml" rel="self"/>
   <link href="http://JonLz.github.com/"/>
-  <updated>2012-11-19T00:45:32-05:00</updated>
+  <updated>2012-12-11T18:46:37-05:00</updated>
   <id>http://JonLz.github.com/</id>
   <author>
     <name><![CDATA[Jon]]></name>
@@ -20,14 +20,14 @@
     <id>http://JonLz.github.com/blog/2012/11/18/october-2012</id>
     <content type="html"><![CDATA[<p>October ended up being a great month for my programming career. I feel a lot better versed in ruby syntax and started becoming a lot more confident in rails. I'm able to think up solutions to problems in much more programmatical/organized manner and am slowly beginning to understand how the basic rails information flow works. I still don't quite understand routing as I'm still creating routes by hand and not using the built in rails paths. Maybe I need to read up on REST, but I'm definitely going to be focusing on this next month.</p>
 
+<!-- more -->
+
+
 <p>My git workflow is getting a lot more effortless as well. I need to begin working on some open source projects to learn collaboration skills on projects but my use of git-fu for source control is strong now. I'll be creating a page for my most used git commands and any cool ones I discover, I'm still looking up new ones almost daily or trying to refine my workflow.</p>
 
 <p>I'm also slowly starting to become more competent in javascript, jquery, and css which is definitely showing up as I work through rails views. Next up is understanding json and how to have rails serve up friendly javascript variables to my views. I'm sure theres millions of helpers/gems available out there - it'll be time to find them and report back here when I do. I don't think my projects are big enough to get going with backbone and node yet (or would even need node for the architectures I'm using) but it's good to have some working knowledge of them as I pursue full-stack programming.</p>
 
 <p>Last but not least, I finally got tired of my windows IDE and I'm working on setting up a new Mac, monitor, and programming environment. Time to learn all the bash commands I've been missing out on.</p>
-
-<!-- more -->
-
 
 <p>Refer to my <a href="/coding-timeline">Coding Timeline</a> for all the links to the items discussed here.</p>
 
