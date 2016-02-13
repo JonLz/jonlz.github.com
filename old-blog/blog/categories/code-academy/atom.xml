@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: code academy | JonLz's Coding Blog]]></title>
+  <link href="http://JonLz.github.com/blog/categories/code-academy/atom.xml" rel="self"/>
+  <link href="http://JonLz.github.com/"/>
+  <updated>2012-12-11T18:46:37-05:00</updated>
+  <id>http://JonLz.github.com/</id>
+  <author>
+    <name><![CDATA[Jon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[October 2012]]></title>
+    <link href="http://JonLz.github.com/blog/2012/11/18/october-2012/"/>
+    <updated>2012-11-18T23:09:00-05:00</updated>
+    <id>http://JonLz.github.com/blog/2012/11/18/october-2012</id>
+    <content type="html"><![CDATA[<p>October ended up being a great month for my programming career. I feel a lot better versed in ruby syntax and started becoming a lot more confident in rails. I'm able to think up solutions to problems in much more programmatical/organized manner and am slowly beginning to understand how the basic rails information flow works. I still don't quite understand routing as I'm still creating routes by hand and not using the built in rails paths. Maybe I need to read up on REST, but I'm definitely going to be focusing on this next month.</p>
+
+<!-- more -->
+
+
+<p>My git workflow is getting a lot more effortless as well. I need to begin working on some open source projects to learn collaboration skills on projects but my use of git-fu for source control is strong now. I'll be creating a page for my most used git commands and any cool ones I discover, I'm still looking up new ones almost daily or trying to refine my workflow.</p>
+
+<p>I'm also slowly starting to become more competent in javascript, jquery, and css which is definitely showing up as I work through rails views. Next up is understanding json and how to have rails serve up friendly javascript variables to my views. I'm sure theres millions of helpers/gems available out there - it'll be time to find them and report back here when I do. I don't think my projects are big enough to get going with backbone and node yet (or would even need node for the architectures I'm using) but it's good to have some working knowledge of them as I pursue full-stack programming.</p>
+
+<p>Last but not least, I finally got tired of my windows IDE and I'm working on setting up a new Mac, monitor, and programming environment. Time to learn all the bash commands I've been missing out on.</p>
+
+<p>Refer to my <a href="/coding-timeline">Coding Timeline</a> for all the links to the items discussed here.</p>
+
+<h2>Things I worked on:</h2>
+
+<h3>Rails Projects: Blackjack</h3>
+
+<p>This was a project I honestly can't recall how I discovered.  I most likely stumbled upon it during one of my hack googling sessions in search of an answer to some beginner programming question.  It's a great little tutorial which was built by Tim Jensen presumably after he finished Michael Hartl's Rails Tutorial app.  It leverages a lot of the code from that tutorial and breezes through it but then slows down to go through the actual coding of a pretty decent blackjack rails based game.</p>
+
+<p>I would say it's great practice to go through the full setup from start to finish of creating a new rails app and brining it to fruition. Lots of concepts are explained, especially the use of AJAX to make a responsive blackjack UI with images and buttons. The code tests are shown as well which is doubly nice.</p>
+
+<h3>Ruby Projects: Word Scramble, Conway's Game of Life</h3>
+
+<p>I'll just discuss my word scramble solver here quickly as I already posted a pretty lengthy walkthrough of my Conway's Game of Life program. I really enjoy the word scramble game by Zynga on my phone so naturally I tried to create a solver program for the game.  Not to cheat at the game, but for my edification and to see how my ruby skills had been coming along. It was essentially created in a hack'y fashion as I used an array of coordinates so I would know each cell's neighbors during the recursive calls. Not elegant, but functional. Other than that, it builds the word, then checks it against a dictionary and returns a list of the highest scoring words to the user. Oh, I learned a lot about hashes too. Hashes are epic.</p>
+
+<p>Well it was a great success and introduced some new concepts and solidified my understanding of how classes and methods work. I'm pretty proud of it and would love to get this up on a rails framework so it's easier to use when I have more time.</p>
+
+<h3>Reddit dailyprogrammer</h3>
+
+<p>This is a pretty nice, updated daily as the name indicates, collection of programming challenges that you can attempt to solve to stretch your programming skills. They come in beginner, intermediate, and advanced varieties and programmers from all kinds of backgrounds submit their answers and discuss the problems in great detail. So far I haven't solved any advanced (too time consuming for me), only a handful of intermediates, and all the beginner challenges I've seen. Ruby seems somewhat under-represented in the forums but you can usually find one or two ruby solutions. I see mostly python and C/C++ which is interesting to compare my solution to those.  Ruby is almost always shorter in terms of lines of code and readability. I'm not sure about performance but it's fun seeing a solution in another language that's 30 some odd lines of code vs. mine which is 5.</p>
+
+<h3>Bastard's Book of Ruby</h3>
+
+<p>This is a great resource that discusses web scraping and some more practical uses of ruby as a scripting language instead of the usual focus on OOP and rails. I like that the author takes time to explain ruby from a beginner's perspective and then dives right into how useful it can be with real examples. I'm still at the point where I consider myself a beginner and although I understood all of the things he was talking about they were all still very useful. Nokogiri and Mechanize are two really amazing gems and all new rubyists should at least be aware they're out there. The basic process involves opening URIs and then capturing data from HTML tags or files, etc. It reminds me of a cURL scripting tool written in ruby. You can do some really cool data harvesting and harness the power of ruby to tame web pages which may not be so nice. I haven't even begun to scratch the surface here but it's already drawn me in.</p>
+
+<h3>Ruby Warrior</h3>
+
+<p>This project tasks you with fighting your way out of various dungeons and gradually gives you more tools to do so. You start off only able to walk in one direction and gradually gain the ability to swing swords, rescue captives, and cast spells. It's also a super useful and FUN way to learn ruby. You begin with simple control flow but then slowly need to start accounting for different variables and conditions which forces you to create other methods and classes. You never really feel like you're programming as you're worrying about solving the puzzle of how to get past the stage but at the same time you're writing real code and learning a lot in the process.</p>
+
+<p>There are two stages, beginner and intermediate, and two modes, original and time-attack which give you all kinds of challenges and keep you engaged. The beginner mode is pretty straightforward with just a single path to walk down but the intermediate level gets complicated a lot faster as the map becomes open ended and you get a lot more choices. In original mode you play through each level and only have to account for the variables of that level. In time-attack you start from level 1 and keep going until you die: the goal being to get to the end with one file of code.</p>
+
+<p>Simply a great way to learn ruby and has enough competitive elements to keep you interested. I highly recommend this one! I still need to make my way through the intermediate level. Oh, I was able to introduce the beginner version of this game to my girlfriend, who doesn't have any programming experience, and she was super absorbed by it - it's that deceptively great at teaching in a gameified way.</p>
+
+<h3>Code School and Code Academy</h3>
+
+<p>I think these are pretty self-explanatory but I have to include them here. They offer tons of modules covering a gamut of programming topics and walk you through from the beginning. Git, backbone.js, node.js, jQuery, javascript, html, css, ruby, rails, rspec are among the ones I can recall being covered between these 2. Code School costs money for premium modules and Code Academy is free. Code School is definitely the more polished of the 2 and has a broader offering but Code Academy is a very good alternative and is more project based whereas Code School is video/exam based. This is a great way to get introduced to other web technologies if you aren't yet familiar (especially javascript based). Like it or not everyone needs to know some java.</p>
+
+<h2>Accomplishments</h2>
+
+<ul>
+<li>Picked up a lot of ancillary knowledge around other web technologies (Javascript, jQuery, Backbone, Node - thanks Code School)</li>
+<li>Learned a lot more of the ins and outs of git</li>
+<li>Completed a new rails app from scratch - picked up some AJAX knowledge</li>
+<li>Became familiar with basic regex syntax</li>
+</ul>
+
+
+<h2>Goals For November</h2>
+
+<ul>
+<li>Start work on a larger rails project</li>
+<li>Study rails routing</li>
+<li>Read books on ruby as I plan to be working more on Rails</li>
+<li>Work on an open source project [from September]</li>
+<li>Write tests for all my ruby code [from September]</li>
+</ul>
+
+
+<h2>Goals From September</h2>
+
+<ul>
+<li>Start work on a rails project -- COMPLETE</li>
+<li>Learn more about git workflow and collaboration -- COMPLETE</li>
+<li>Work on an open source project -- FAIL</li>
+<li>Write tests for all my ruby code -- FAIL</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

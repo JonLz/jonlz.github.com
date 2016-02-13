@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rubeque | JonLz's Coding Blog]]></title>
+  <link href="http://JonLz.github.com/blog/categories/rubeque/atom.xml" rel="self"/>
+  <link href="http://JonLz.github.com/"/>
+  <updated>2012-12-11T18:46:37-05:00</updated>
+  <id>http://JonLz.github.com/</id>
+  <author>
+    <name><![CDATA[Jon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[August 2012]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/19/august-2012/"/>
+    <updated>2012-10-19T12:50:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/19/august-2012</id>
+    <content type="html"><![CDATA[<p>Since this is my first monthly update I'll discuss a little of what I want to accomplish with these.  They are intended to be monthly snapshots of where I am along the development timeline and commentary about my goals and accomplishments.</p>
+
+<!-- more -->
+
+
+<p>Refer to my <a href="/coding-timeline">Coding Timeline</a> for all the links to the items discussed here.</p>
+
+<h2>Things I worked on:</h2>
+
+<h3>Rails Tutorial by Michael Hartl</h3>
+
+<p>This is a pretty awesome introduction to rails and ruby and all the other soft skills necessary to succeed as a programmer. Michael takes you through building a twitter clone in Rails.  I'll have to go through this whole tutorial again at some point because there is just so much material to absorb here.  You will learn git, testing, rspec, partials, layouts, models, controllers, workflow, TDD (test driven development), rails, best practices, deployment, source/version control, and even some SQL, and a ton more.  It goes through how to install and setup ruby, rails, git, and heroku.</p>
+
+<p>It is very lengthy and does it's best to hold your hand through the process but there is just an abundance of information there. Even if you don't get it I would recommend methodically going through it just for the immersion as it really hit on all the important topics.</p>
+
+<h3>Project Euler</h3>
+
+<p>I didn't spend a ton of time because it doesn't have a built in ruby parser however once I got my ruby development up and running I ran through the first page or so of problems.  Great site for problem solving / code chunking that gets you thinking like a programmer.  A lot of the problems are difficult but I had a good time trying to decompose the problems into a program.</p>
+
+<h3>Rubeque</h3>
+
+<p>I spent a lot of time on this website which is a standalone ruby challenges website.  You are presented with challenges and you must fill in the correct code snippets to get the code to pass the Test::Unit cases.They start off very easy and quickly become difficult as you progress.  I did a bunch of these and had all of the ruby-doc basic class methods open - this is an awesome to way learn all the various basic class methods of arrays, strings, and hashes. Fun too.  I ended up somehow losing my github authorized account so I did them all over again with a new account and really blew through them the second time - nice indicator of progress.</p>
+
+<h3>Try Ruby and Try Git</h3>
+
+<p>Try Ruby was my first experience with ruby ever and it was very user friendly.  I remember finishing up the course and then just playing around in the irb console for quite awhile.  I actually used it for quite some time as my primary compiler until I finally installed my own ruby dev environment.  The compiler gets clunky and isn't easy to scroll around if you plan to use it to test a bunch of code but it's perfect as an intro tutorial to rails.</p>
+
+<p>Try Git was also my first experience with git.  It's very helpful to learn the basic commands but I don't think anything compares to actually creating your own projects/repos and learning the commands and ins/outs on your own. There is an awesome article I read from Hacker News about <a href="osteele.com/archives/2008/05/commit-policies">commit policies</a> that explains and visualizes alot of the git workflow.  Highly recommended.</p>
+
+<h2>Accomplishments</h2>
+
+<ul>
+<li>Setup my own ruby and rails environments</li>
+<li>Learned a lot of basic object methods - strings, arrays, hashes in ruby</li>
+<li>Basic rails skills and MVC architecture</li>
+<li>Created github, heroku, and started working on standalone projects</li>
+</ul>
+
+
+<h2>Goals</h2>
+
+<ul>
+<li>Finish Rails Tutorial</li>
+<li>Read up on more ruby books</li>
+<li>Attend more meetups</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

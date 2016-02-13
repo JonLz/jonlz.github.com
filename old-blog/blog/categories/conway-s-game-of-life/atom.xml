@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Conway's Game of Life | JonLz's Coding Blog]]></title>
+  <link href="http://JonLz.github.com/blog/categories/conway-s-game-of-life/atom.xml" rel="self"/>
+  <link href="http://JonLz.github.com/"/>
+  <updated>2012-12-11T18:46:37-05:00</updated>
+  <id>http://JonLz.github.com/</id>
+  <author>
+    <name><![CDATA[Jon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Things I Learned in Life]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life/"/>
+    <updated>2012-10-19T16:22:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/19/things-i-learned-in-life</id>
+    <content type="html"><![CDATA[<h2>Conway's Game of Life</h2>
+
+<p>If you aren't familiar with Conway's Game of Life, it's a set of rules that simulates cellular evolution based on the initial state of a group of cells.  The game consists of a simple ruleset that algorithmically determines a cell's state based on its surroundings.  It's simple in practice but some of the resulting evolutions are fascinating.  It's also a great advanced beginner programming challenge!</p>
+
+<!--more-->
+
+
+<hr/>
+
+
+<p>Here are the rules courtesy of Wikipedia:</p>
+
+<p>The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of
+which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours,
+which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the
+following transitions occur:</p>
+
+<ul>
+<li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+<li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+<li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
+<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+</ul>
+
+
+<p>The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.</p>
+
+<p>Example:<br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif" alt="Glider" /></p>
+
+<hr/>
+
+
+<h2>Programming it in Ruby</h2>
+
+<p>I think the approach I took was rather brute force but it worked rather well and is fairly intuitive (at least to me it is!).  My approach was to create a blank board of size rows x cols and set the state with a pre-defined array of living cells.  I then iterate through each successive state by checking each cell, counting the number of alive neighbors, and applying the rules of the game to determine whether to kill the cell, let it live, or bring it to life.  Simple enough right?</p>
+
+<p>If you want to follow along here is <a href="https://github.com/JonLz/rubysamples/blob/master/conways%20game%20of%20life.rb" target="_blank">my solution</a></p>
+
+<h3>The Board</h3>
+
+<p>I represented the board with a 2 dimensional array and here I learned something really useful.  And I thought this was going to be the easy part!  This was my first attempt at creating the @board array:
+```</p>
+
+<pre><code>@board = Array.new(@rows, Array.new(@cols, DEAD_CELL))
+</code></pre>
+
+<p>```<br/>
+This code looks really intuitive at first glance.  Create a new array with @rows number of rows, and in each of those rows create a new array with @cols number of cols with default values of DEAD_CELLs which is a constant that has the character for the dead cells in it.  But what this is really doing is creating an array where <strong>ALL</strong> of your columns are just references to the same column array!</p>
+
+<p>I was tearing my hair out trying to figure out why this wasn't working until I went back to look at the documentation for Array.new which reads <strong>new(size=0, obj=nil)</strong>.  It clicked, aha it references to an object.  So you actually need to use the block method of array creation: <strong>new(size) {|index| block }</strong>
+```</p>
+
+<pre><code>@board = Array.new(@rows) {Array.new(@cols, DEAD_CELL)}
+</code></pre>
+
+<p>```<br/>
+So remarkably similar but it's actually creating new arrays in memory each time now.</p>
+
+<h3>Iterating States</h3>
+
+<p>The code to cycle through each cell on the board isn't very exciting but I did run into another problem.  I guess I didn't learn my referencing problem from my board creation fiasco but this is something I really didn't even know <em>could</em> be a problem.</p>
+
+<p>My iteration technique was to create a new blank board which would become the next iterative state based on the current state of the actual @board instance variable.  This is how I did it at first:
+```<br/>
+def initialize
+  ...initialize the board code...
+  @static_board = @board
+end</p>
+
+<p>def next_state
+  new_board = @static_board
+  ...iterative code...
+  @board = new_board
+end
+```</p>
+
+<p>This problem tied me up for a good hour trying to figure out what the heck was going on.  I was dumping puts statements everywhere to try and see what iteration I was on, what the iterator values were, the row and column variables, the number of alive neighbors, etc etc.  It wasn't until I went so far as to spit the board out on every successive cell check that I figured out what was happening.  My new board and static board were all actually just references to the original board so I was never actually creating a fresh new board!  Every time I would "set" my new board, the actual @board would get altered and it drove me nuts.  Oh the irony.  Here is my working version:
+```<br/>
+def initialize
+  @board = base_array
+end</p>
+
+<p>def base_array
+  Array.new(@rows) {Array.new(@cols, DEAD_CELL)}
+end</p>
+
+<p>def next_state
+  new_board = base_array
+  ...iterative code...
+  @board = new_board
+end
+```</p>
+
+<h3>Other Notes</h3>
+
+<p>Another neat trick when working with 2d arrays is that you can do this to loop through every surrounding cell easily.  It's pretty great that you can use each on something as basic as a range and it just works as you would expect it to.
+<code>  
+(-1..1).each do |x|
+  (-1..1).each do |y|
+</code><br/>
+Coincidentally, I wish I had thought about this when I was writing my word scramble solver as when I did that I hardcoded an array of all adjacent cells. :)</p>
+
+<p>You can also override the to_s function and make your own, so that every time you call your objects inspect method it will run your own to_s.
+```<br/>
+def Game
+  def to_s</p>
+
+<pre><code>puts "hi"
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>p Game.new # "hi" is displayed
+```</p>
+
+<p>I'd recommend if you're comfortable with array iteration to give this game a try, it's a great learning exercise and fun to play around once you've got it all working.  Long live R-Pentomino!</p>
+]]></content>
+  </entry>
+  
+</feed>

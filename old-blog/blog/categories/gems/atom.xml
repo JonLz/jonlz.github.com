@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gems | JonLz's Coding Blog]]></title>
+  <link href="http://JonLz.github.com/blog/categories/gems/atom.xml" rel="self"/>
+  <link href="http://JonLz.github.com/"/>
+  <updated>2012-12-11T18:46:37-05:00</updated>
+  <id>http://JonLz.github.com/</id>
+  <author>
+    <name><![CDATA[Jon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Guard, LiveReload, and Spork]]></title>
+    <link href="http://JonLz.github.com/blog/2012/10/22/guard-livereload-and-spork/"/>
+    <updated>2012-10-22T11:31:00-04:00</updated>
+    <id>http://JonLz.github.com/blog/2012/10/22/guard-livereload-and-spork</id>
+    <content type="html"><![CDATA[<p>I sat down last night and started getting back into Rails finally.  I feel like I'm at a point with ruby now where I'm pretty comfortable with basic syntax and program flow.  I probably spent a little more time than I would have liked to getting up to speed with ruby since my main aim is to build web apps but damn if ruby programming isn't just <em>fun</em>.</p>
+
+<p>As part of my rails project I made sure to set it up so I could do it in a TDD way.  I kept hearing great things about Guard (a ruby gem) on the rogues podcast and a couple of other places (the rails tutorial by Michael Hartl also talks about it) so I gave it a try.  Long story short, this thing is amazing.</p>
+
+<!--more-->
+
+
+<p>Guard is a gem that watches for file changes in your working folders (i.e. when you save a file you're working on) and automatically performs actions when that file changes.  It's most commonly used to automatically run tests on files when you save.  The only problem is this can get slow very fast since tests have to generate and run your entire rails server every time.  This is where spork comes in.  Spork basically speeds up your tests by running a server in the background that stays up instead of being regenerated every time your tests are run.</p>
+
+<p>Live Reload lets you do the same guard-esque features with your actual browser by reloading the browser automatically any time you make changes to files that alter the source files (i.e. HTML, CSS, JS).  It seems simplistic but it's positively addicting and makes it easy to see exactly how the code you're writing impacts the front-end views.</p>
+
+<p>These are all great in their own rights but truly amazing when paired together as they are synergistic tools.  You can automate all of these tasks by linking them into your guard gem.  This way you just run guard once and it will run your spork server, livereload server, and then watch your files for automatic testing (both for tests and for livereload).  Now your tests are blazingly fast, and you can get instant feedback on your code changes directly in your browser!</p>
+
+<p>I didn't have too much difficulty setting any of this up thanks to the RailsCasts videos.  There it's covered in great depth and you can see some of the nuances:<br/>
+<a href="http://railscasts.com/episodes/264-guard">RailsCasts - Guard</a><br/>
+<a href="http://railscasts.com/episodes/285-spork">RailsCasts - Spork</a></p>
+
+<p>Here are the gems if you're curious:
+<code>  
+gem 'guard'
+gem 'guard-livereload'
+gem 'guard-spork'       #these gems automatically include the dependency gems 'livereload' and 'spork'
+</code></p>
+
+<p>Time to get cracking on some Rails now that the testing hell has been alleviated.</p>
+]]></content>
+  </entry>
+  
+</feed>
