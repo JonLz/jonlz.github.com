@@ -5,7 +5,7 @@ title: GIF Memory Game
 
 # Overview
 
-Welcome, if you haven't already please check out the [GitHub repo](http://www.github.com/JonLz/gif-memory/game) and have it open (or the project built and open) as you read along.This guide is intended to be a companion post that will walk through each commit and discuss the development process.
+Welcome, if you haven't already please check out the [GitHub repo](http://www.github.com/JonLz/gif-memory-game) and have it open (or the project built and open) as you read along.This guide is intended to be a companion post that will walk through each commit and discuss the development process.
 
 ### What is this?
 
