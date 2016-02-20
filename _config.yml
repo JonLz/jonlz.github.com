@@ -26,6 +26,9 @@ version:             2.0.0
 github:
   repo:              https://github.com/JonLz/jlazar.com
 
+highlighter: rouge
+markdown: redcarpet
+
 # Gems
 gems:
   - jekyll-paginate

@@ -9,6 +9,14 @@
       <header class="masthead">
         <h3 class="masthead-title">
           <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+          {% assign pages_list = site.pages %}
+            {% for node in pages_list %}
+              {% if node.title != null %}
+                {% if node.layout == "page" %}
+                  &nbsp;&nbsp;&nbsp;<small><a href="{{ node.url }}">{{ node.title }}</a></small>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
           <small>{{ site.tagline }}</small>
         </h3>
       </header>

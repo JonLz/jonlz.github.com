@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Project Post 1
+layout: default
+title: GIF Memory Game
 ---
 
 # Overview
@@ -94,7 +94,7 @@ Just a couple of quick notes here. For elements that use autolayout, do not use 
 
 I like to setup my layouts from the top down (for vertical views). I start with the topmost element and constrain it to where I want it, then work down and setup views relative to the top views so everything hangs down from the top. Here we are setting a background image to be the entire size of the screen (self.view refers to the base view of the view controller). Then we tell the title label it should be 90 points below the top of the screen. Then we center it horizontally. Finally, the menu stack view should have its bottom 50 points from the bottom of the screen, be as wide as the screen, and have a height of 150.
 
-{% highlight smalltalk %}
+```objc
 [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
 	make.edges.equalTo(self.view);
 }];
@@ -109,7 +109,8 @@ I like to setup my layouts from the top down (for vertical views). I start with 
     make.left.and.right.equalTo(self.view);
     make.height.equalTo(@150);
 }];
-{% endhighlight %}
+
+```
 
 #### Intrinsic Content Size
 
@@ -123,14 +124,14 @@ Stack views are a great new tool provided in iOS 9.0+. They help manage content 
 
 One thing to keep in mind is that stack views use autolayout to layout their contents.
 
-{% highlight smalltalk %}
+```objc
 self.menuStackView.alignment = UIStackViewAlignmentCenter;
 self.menuStackView.distribution = UIStackViewDistributionFillEqually;
 self.menuStackView.axis = UILayoutConstraintAxisVertical;
 self.menuStackView.spacing = 8.0f;
 [self.menuStackView addArrangedSubview:self.startLabel];
 [self.menuStackView addArrangedSubview:self.aboutLabel];
-{% endhighlight %}
+```
 
 You can read the [documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIStackView_Class_Reference/) on what each of these properties does but very quickly, we have a stack view on the vertical axis, that aligns elements to the center, fills elements equally, and provides 8 points of spacing.
 
@@ -150,7 +151,7 @@ Once a server receives a request, it responds to it with a response which includ
 
 Our goal here is to send a GET request to a REST endpoint over at [Giphy](https://github.com/Giphy/GiphyAPI) (/gifs/trending), receive back the JSON response and parse it.
 
-{% highlight smalltalk %}
+```objc
  +(void)retrieveGifUrlsWithSuccess:(void (^)(NSArray *urls))success failure:(void (^)(NSError *))failure
  {
      AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -174,7 +175,7 @@ Our goal here is to send a GET request to a REST endpoint over at [Giphy](https:
          
      }];
  }
-{% endhighlight %}
+```
 
 #### AFNetworking
 
@@ -198,7 +199,7 @@ One thing worth mentioning is this is usually used with regards to testing but w
 
 Instead of the server response, we've provided our own file (which I got by using Postman from sending a request and copying the response) in GiphyResponse.json
 
-{% highlight smalltalk %}
+```objc
 NSBundle *bundle = [NSBundle bundleForClass:[self class]];
 [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
 	return YES;
@@ -206,19 +207,19 @@ NSBundle *bundle = [NSBundle bundleForClass:[self class]];
 	return [OHHTTPStubsResponse responseWithFileAtPath:[bundle pathForResource:@"GiphyResponse" ofType:@"json"] statusCode:200 headers:@{@"Content-Type":@"application/json"}];
 	}];
 }
-{% endhighlight %}
+```
 
 The first block here just returns YES so that it will stub every network request. Eventually we'll need to change this so it's just for the specific network call that we want because right now every network request we make is going to respond back with the Giphy JSON. You can do this by looking at the request URL and deciding whether you want to stub it or not. The pod website suggests this:
 
-{% highlight smalltalk %}
+```objc
 return [request.URL.host isEqualToString:@"mywebservice.com"];
-{% endhighlight %}
+```
 
 The second block accesses the JSON response we've created ourselves and sends it back to whatever method requested the network request.
 
 ### Singletons
 
-{% highlight smalltalk %}
+```objc
 +(instancetype)sharedInstance
  {
      static dispatch_once_t once;
@@ -228,7 +229,7 @@ The second block accesses the JSON response we've created ourselves and sends it
      });
      return sharedInstance;
  }
-{% endhighlight %}
+```
 
 The last piece of the puzzle here is this bit of code which is one way to setup the singleton pattern. This is a fairly common pattern you'll see throughout iOS development. What it intends to do is provide a single instance of one class that anyone can access by calling the sharedInstance class method. the static and dispatch_once code is the standard way to set this up so that an instance is only created once and then provided back to anyone who asks for the shared instance. 
 
@@ -273,19 +274,19 @@ By the way, UIButton inherits from UIControl so you can liken what we're doing t
 
 UIControl makes available the Target/Action pattern which we'll make use of to listen for touch events on our memory tile views. You can read more about it [here](https://developer.apple.com/library/ios/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html). This pattern lets us respond to taps by binding the GameViewController (self) as the target for the action UIControlEventTouchUpInside. This is an action that is fired whenever the user touches inside of the memory tile view. This would also be a good time read about [Event Delivery and The Responder Chain](https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/event_delivery_responder_chain/event_delivery_responder_chain.html)
 
-{% highlight smalltalk %}
+```objc
  for (MemoryTileView *tileView in self.memoryTileViews) {
          [tileView addTarget:self action:@selector(memoryTileViewTapped:) forControlEvents:UIControlEventTouchUpInside];
      }
-{% endhighlight %}
+```
 
 #### SDWebImage
 
 SDWebImage is a nice library that lets us point a URL at a UIImageView and it will handle the loading and caching for us. There isn't much to say about it except that it provides a lot of nice guarantees. With it, we can be safe in the assumptions that the downloading and displaying won't block the main UI thread, will be cached so multiple calls to the image wont be downloaded multiple times, and that it does this pretty efficiently. Oh and it also handles animated GIFs which isn't something that is native to iOS.
 
-{% highlight smalltalk %}
+```objc
 [_imageView sd_setImageWithURL:tile.smallAnimatedURL];
-{% endhighlight %}
+```
 
 Pretty simple API isn't it? Yep, that's all we need to load an animated GIF from the internet.
 
@@ -293,7 +294,7 @@ Pretty simple API isn't it? Yep, that's all we need to load an animated GIF from
 
 With all the pieces in place, all we have to do now is display the memory tile views on screen. We do that with a healthy dose of stack views and a little autolayout. We'll iterate through our game tiles array, grab each tile, associate it with a memory tile view, and then display that view on the screen in a stack view. That's it.
 
-{% highlight smalltalk %}
+```objc
 +- (void)setupStackViews
 {
 	UIStackView *verticalStackView = [self verticalStackView];
@@ -316,7 +317,7 @@ With all the pieces in place, all we have to do now is display the memory tile v
         make.height.equalTo(self.view).multipliedBy(0.75);
     }];
 }
-{% endhighlight %}
+```
 
 ---
 
@@ -332,13 +333,13 @@ We're doing this so that the user has time to process the two tiles before they 
 
 dispatch_get_main_queue() makes sure it runs on the main thread. If you take away only one thing from reading this, and hopefully more than that since you've made it this far!, it's that the main thread is where all of the UI work must happen. Anytime you're doing anything that manipulates the UI, that is fiddling with UIViews, changing layer colors, moving things around, etc. do it on the main thread. We do this on the main thread because we'll be reading from these variables directly to alter our UI state later.
 
-{% highlight smalltalk %}
+```objc
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             firstTile.visible = NO;
             secondTile.visible = NO;
             self.readyForNextTurn = YES;
         });
-{% endhighlight %}
+```
 
 #### Key Value Observing
 
@@ -350,7 +351,7 @@ You might be wondering now why when I mentioned above that in MVC architecture i
 
 In some architectures the view will send all events to the controller, the controller will do some work, talk to the model, and then respond back to the view. Here, the controller is involved because it has provided the model object to the view so that the view can do what it has to in order to update itself. The controller has done its job and because our use case is so simple and there is no inherent data transformation or complex request processing, we don't need to involve the controller in every interaction.
 
-{% highlight smalltalk %}
+```objc
 - (void)setupTileObserver
 {
     [self.tile addObserver:self forKeyPath:@"visible" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
@@ -367,7 +368,7 @@ In some architectures the view will send all events to the controller, the contr
         
     }
 }
-{% endhighlight %}
+```
 
 ---
 
@@ -395,13 +396,13 @@ From the viewpoint of the from view controller (the view controller beginning th
 
 First we'll setup our from view controller to adhere to the protocol:
 
-{% highlight smalltalk %}
+```objc
 interface TitleViewController () <UIViewControllerTransitioningDelegate>
-{% endhighlight %}
+```
 
 Then we need to implement the protocol methods:
 
-{% highlight smalltalk %}
+```objc
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {
@@ -415,11 +416,11 @@ Then we need to implement the protocol methods:
     TransitionAnimator *animator = [TransitionAnimator new];
     return animator;
 }
-{% endhighlight %}
+```
 
 And finally we can create a transition like we normally would:
 
-{% highlight smalltalk %}
+```objc
 - (void)startTapped
 {
     GameViewController *gvc = [[GameViewController alloc] init];
@@ -427,7 +428,7 @@ And finally we can create a transition like we normally would:
      
     [self presentViewController:gvc animated:YES completion:nil];
 }
-{% endhighlight %}
+```
 
 I will leave out the code from the actual animator object because it's easier for you to read through as its pretty straightforward frame and animation code.  Just remember the flow as you read through it from top to bottom. Grab view controllers, place their views in a temporary context, setup both view controller frames, do the animation, finish the transition.
 
@@ -437,13 +438,13 @@ Lots of good information [here](https://www.objc.io/issues/12-animations/custom-
 
 I added in a basic flipping animation using a UIView transition that will show the user a tile flip animation whenever they tap the tile. This is using the built in UIView animation API that you can call on any UIView. We pass in some options that tell it to transition as a flip from the right, and to show/hide the views based on what should be displayed (the default behavior is to remove/add them from the view hierarchy which is not what I wanted). I've talked a little bit about UIView animations [here](https://medium.com/@jon.lazar/animations-and-cggeometry-in-ios-3374dfc57e37#.3br26xvt5), this method is similar although explicitly for transitioning between views and not for animating one view.
 
-{% highlight smalltalk %}
+```objc
 if (shouldBeVisible) {
     [UIView transitionFromView:self.backgroundImageView toView:self.imageView duration:0.5f options: UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews completion:nil];
 } else {
      [UIView transitionFromView:self.imageView  toView:self.backgroundImageView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromLeft | UIViewAnimationOptionShowHideTransitionViews completion:nil];
 }
-{% endhighlight %}
+```
 
 Lastly, I added in a status box view to display the number of turns. It uses a combination of all the techniques we've discussed previously so there's nothing new to talk about. Check it out and see if you can understand how it works!
 
@@ -456,7 +457,7 @@ Persistence in iOS is a pretty large topic and there are many different ways to 
 #### NSKeyedArchiver / NSKeyedUnarchiver (NSCoding)
 Enter NSKeyedArchiver/NSKeyedUnarchiver - possibly the easiest solution to persistence. With it, we get a simple interface to persist our objects but we lose any kind of easy access to relational querying, performance, etc. All we care about is that it's quick and easy to setup and it can persist our data. We don't need to query our data, care about how fast it loads, or do any kind of complex migrations. All that we need to do is to implement the NSCoding protocol which means you need to tell it how to map each of your object properties when it serializes and deserializes data. Let's take a look at how we do this for the MemoryGame object:
 
-{% highlight smalltalk %}
+```objc
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
@@ -479,13 +480,13 @@ Enter NSKeyedArchiver/NSKeyedUnarchiver - possibly the easiest solution to persi
     [aCoder encodeBool:self.readyForNextTurn forKey:@"readyForNextTurn"];
     [aCoder encodeBool:self.gameInProgress forKey:@"gameInProgress"];
 }
-{% endhighlight %}
+```
 
 We use the initWithCoder and encodeWithCoder methods to map our memory game properties to the corresponding keys that will be used to serialize and deserialize our data. With these objects now NSCoding compliant, NSKeyedArchiver and NSKeyedUnarchiver can serialize these objects to/from NSData.
 
 Archiving:
 
-{% highlight smalltalk %}
+```objc
 - (void)saveCurrentGame
 {
     if (self.gameInProgress) {
@@ -494,18 +495,18 @@ Archiving:
         [defaults setObject:gameData forKey:@"com.memory.game"];
     }
 }
-{% endhighlight %}
+```
 
 Unarchiving:
 
-{% highlight smalltalk %}
+```objc
 NSData *savedGameData = [[NSUserDefaults standardUserDefaults] objectForKey:@"com.memory.game"];       
      if (savedGameData) {
          sharedInstance = [NSKeyedUnarchiver unarchiveObjectWithData:savedGameData];
      } else {
          sharedInstance = [[self alloc] init];
      }
-{% endhighlight %}
+```
 
 The flow here is we start with a custom object which is not NSCoding compliant, we add the <NSCoding> tag so the system knows it will adhere to the NSCoding protocol. Then we define the NSCoding methods, initWithCoder and encodeWithCoder. Now that we have an NSCoding compliant object, we can serialize it to/from NSData by using NSKeyedArchiver and NSKeyedUnarchiver. NSKeyedArchiver turns an NSCoding compliant object into NSData which we can then store somewhere like NSUserDefaults. NSKeyedUnarchiver reads an NSData object and turns it back into its original object.
 
@@ -537,7 +538,7 @@ One quick aside: when you are going through these open source libraries and find
 
 This will get us a list of trends in NYC which we'll use to feed into our tableview:
 
-{% highlight smalltalk %}
+```objc
 - (void)fetchTrends:(void (^)(NSArray *trends))success failure:(void (^)(NSError *))failure
  {
      STTwitterAPI *twitter = [STTwitterAPI twitterAPIAppOnlyWithConsumerKey:TWITTER_CONSUMER_KEY
@@ -561,11 +562,11 @@ This will get us a list of trends in NYC which we'll use to feed into our tablev
          failure(error);
      }];
  }
- {% endhighlight %}
+ ```
 
 The last minor update made is to our Giphy networking interface. It's now split into two methods, one which will fetch the latest trending GIFs (24 of them - for the default game mode of our app) and one which will grab 2 gifs for a preview of any of the trending terms above when needed. We'll need this one when we create our trending topic VC.
 
-{% highlight smalltalk %}
+```objc
 +- (void)fetchGiphyImageDataForSearchTerm:(NSString *)searchTerm success:(void (^)(NSArray *imageData))success failure:(void (^)(NSError *))failure
  {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -585,7 +586,7 @@ The last minor update made is to our Giphy networking interface. It's now split 
         
     }];
 }
-{% endhighlight %}
+```
 
 The difference between this new one and the previous one are that we are now using a parameters dictionary to pass into AFNetworking where previously we gave it the entire URL to fetch. Using a parameters dictionary is just an easier way of constructing the url which would have this tacked on to the end if we made it manually &q=SearchTerm&api_key=dc6zaTOxFJmzC&limit=2. The other nice thing is AFNetworking handles the encoding of our URL for us. We don't have to worry about special characters given back to us by the search term such as white space, punctuation, etc. They will be converted into URL-encoded characters - see [AFURLRequestSerialization](https://github.com/AFNetworking/AFNetworking/blob/master/AFNetworking/AFURLRequestSerialization.m) for more details.
 
@@ -603,14 +604,14 @@ Table views make heavy use of the delegate pattern in order to provide great fle
 
 If we were going to setup a table view, lets take a simplistic approach and say we only need to know how many rows of data it should display (it will display the same thing in all of the rows so ignore the content for now). The tableview can't function if it doesn't know how many rows of data to display - so this is a requirement to have before it can work. So how would we do that without delegation? Something like create a table view, and set a property on its numberOfRows to a number?
 
-{% highlight smalltalk %}
+```objc
 UITableView *tableView = [[UITableView alloc] init];
 tableView.numberOfRows = [self.dataSource count];
-{% endhighlight %}
+```
 
 Not bad. But what about when our data source changes, maybe we refresh our Twitter API call and now we have a different number of elements in our array. Well that's easy, we'll just set the tableView.numberOfRows again and every time it changes. That's fine, but what if we expand our model table view so that it has to know a bunch of other things in order to function? Like, number of sections, or what each cell should look like? Are we going to setup all of that in advance and update it each time it changes? Something like:
 
-{% highlight smalltalk %}
+```objc
 // called everytime we update some variable that the tableview depends on
 - (void)updateTableView
 {
@@ -619,11 +620,11 @@ Not bad. But what about when our data source changes, maybe we refresh our Twitt
     for (item in self.dataSource) // do something that will create a cell and let the tableview know how to render it
 
 }
-{% endhighlight %}
+```
 
 This is probably feasible but it can quickly spiral out of control. If we take a step back here, with our current approach what we're really doing is pushing information onto the table view every time something changes. Delegation aims to flip this around. It recognizes that the tableview shouldn't be the object that knows about how many rows or sections it has or how the cells should look. That should be the job of some other object. Some object that is much closer to the data. So delegation does this by creating a pull relationship. Our delegate object is going to implement some methods that the parent object can call on to get some of the required information. The table view now has a delegate object that it can ask questions of every time it needs to. The delegate doesn't necessarily know when it will be asked a question, only that it will be asked the question and that it will need to respond appropriately. So with delegation our pattern now looks like this.
 
-{% highlight smalltalk %}
+```objc
 - (void)viewDidLoad 
 {
     UITableView *tableView = [[UITableView alloc] init];
@@ -635,16 +636,16 @@ This is probably feasible but it can quickly spiral out of control. If we take a
 {
     return [self.trends count];
 }
-{% endhighlight %}
+```
 
 In this case, self is the UIViewController itself. The UIViewController is now responsible for answering some of the tableviews questions. Remember, a tableview is just a custom view like any other view that we already know how to setup. The difference is that it happens to implement the delegate pattern. With this delegate pattern setup, the tableview object can now ask its delegate, "Hey how many rows should I have?", "Hey, how many sections should I have?", "Hey what should this cell look like?", "What about this one?" etc.
 
 If you're wondering how the tableview delegate code works, it would look something like this extremely simplistically:
 
-{% highlight smalltalk %}
+```objc
 // here is where the object needs to inquire about how many rows it needs to display in section 0
 NSInteger theNumberOfRows = [self.delegate tableView:self numberOfRowsInSection:0];
-{% endhighlight %}
+```
 
 It sends a reference of itself to the delegate in case the delegate needs to know what object its working with, and the section number. Now the delegate has to figure out how many rows should be in that section and report back to the table view. Simple, lovely.
 
@@ -654,9 +655,9 @@ So that's it in a nutshell but how does the delegate know what methods to implem
 
 A protocol is just a fancy word that defining an interface that contains a set of methods, some required, and some optional. In our case of the table view, it would be a protocol called UITableViewDataSource that defines the required method of numberOfRows, numberOfSections, cellForRowAtIndexPath.. and so on. It creates a contract wherein a delegate knows exactly what sorts of methods it must implement in order to be the delegate of the tableview. You see it like such:
 
-{% highlight smalltalk %}
+```objc
 @interface TrendingViewController () <UITableViewDelegate, UITableViewDataSource>
-{% endhighlight %}
+```
 
 We've implemented the UITableViewDataSource protocol so now we're required to implement the tableview methods or else things will break! By the way, we also implemented the UITableViewDelegate protocol which defines what methods we need to implement so the tableView knows how to display itself and what it should do if a user taps on the cell, etc. Now would be a good time to review the docs on both: 
 
@@ -667,7 +668,7 @@ We've implemented the UITableViewDataSource protocol so now we're required to im
 
 Very quickly, we use the below two methods to tell the tableview the number of sections and rows every time it asks as we just discussed:
 
-{% highlight smalltalk %}
+```objc
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -677,7 +678,7 @@ Very quickly, we use the below two methods to tell the tableview the number of s
 {
     return [self.trends count];
 }
-{% endhighlight %}
+```
 
 And now that we understand delegation lets get back to our tableview. So we've got the list of trends, and we've setup an array called self.trends in our view controller. This is the first place to start when thinking about table views. What is my data? What do I want to display on screen? Well that's easy, for us its an array of trends. Each trend is just a string which indicates the trend name. Cool - so we know our table view data is going to display an array of NSStrings. We'll hereafter refer to this array as our data source. 
 
@@ -685,7 +686,7 @@ A table view essentially transforms this array of data into, well, a table by ta
 
 Our tableview will ask its delegate (the TrendingViewController) to give it a cell for each row. The delegate wil figure out what to put in each cell, then return the cell to the tableview so that it can be displayed. Each cell corresponds to one item in the data source. The indexPath is just an object that represents a location in the tableview (generally a section and a row). The dequeueReusableCellWithIdentifier is a pattern that Apple implements in order to be memory friendly. If we have a table with 1,000,000 rows but only 10 are on the screen at a time we shouldn't create 1,000,000 UITableViewCells. We should just create as many cells need to be on screen and once a cell scrolls off screen, we'll reuse it. So we would display 1 - 10, 2 - 11, 3 - 12, 4 - 13, etc. Keep in mind this method is going to be called a lot, in fact each time you see a new cell this method is being called. So be careful of performing expensive operations in here.
 
-{% highlight smalltalk %}
+```objc
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -710,11 +711,11 @@ Our tableview will ask its delegate (the TrendingViewController) to give it a ce
     }
 }
 
-{% endhighlight %}
+```
 
 So now we have a tableview that does quite a lot: it knows how many rows to display, how many sections, what each row (cell) should look like. Now let's answer the question of what happens when a user selects a cell. Delegation? Yep!
 
-{% highlight smalltalk %}
+```objc
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *trend = self.trends[indexPath.row];
@@ -745,7 +746,7 @@ So now we have a tableview that does quite a lot: it knows how many rows to disp
         NSLog(@"Error with giphy");
     }];    
 }
-{% endhighlight %}
+```
 
 Every time the tableview intercepts a touch event, it asks its delegate what it should do. It says here is the indexpath of the touch event - go figure out what should happen. So we get the trend represented by the row the user just clicked. We change the textColor to be green so the user gets some feedback and knows where they are spatially. Then we reach out to giphy to get the gif data for that trend. If we get a response, we show it in our UIImageView. If we don't, we throw up the no GIFs found label. We'll also toggle a few of our defaults so that our game knows to use the custom trend if the user has selected one or the default game type if not. 
 
