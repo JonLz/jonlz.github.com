@@ -189,6 +189,8 @@ Once we have the responseObject back, a quick look into it shows that it's an NS
 
 Here's a screenshot of what the JSON response looks like:
 
+![Giphy JSON Response](/projects/assets/GiphyJson.png)
+
 Once we build up our array of URLs, we provide that back to the caller via a completion block and we're done.
 
 #### OHHTTPStubs
@@ -217,7 +219,7 @@ return [request.URL.host isEqualToString:@"mywebservice.com"];
 
 The second block accesses the JSON response we've created ourselves and sends it back to whatever method requested the network request.
 
-### Singletons
+#### Singletons
 
 ```objc
 +(instancetype)sharedInstance
