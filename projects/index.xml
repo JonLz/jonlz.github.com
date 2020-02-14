@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Jon Lazar</title>
+    <link>http://www.jonlz.com/projects/</link>
+    <description>Recent content in Projects on Jon Lazar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Feb 2020 22:40:49 -0500</lastBuildDate>
+    
+	<atom:link href="http://www.jonlz.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Projects</title>
+      <link>http://www.jonlz.com/projects/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:49 -0500</pubDate>
+      
+      <guid>http://www.jonlz.com/projects/</guid>
+      <description>GIF Memory Game This is a project intended to help beginner iOS developers learn the ropes. When I was first learning, I found it difficult to go from start to finish on a project. The hope is that by seeing a completed app you can drill down to any piece and understand exactly how it works.
+This app will hit on many iOS fundamental concepts and help you understand how the pieces comes together to build a simple app.</description>
+    </item>
+    
+    <item>
+      <title>GIF Memory Game</title>
+      <link>http://www.jonlz.com/projects/gif-memory-game/</link>
+      <pubDate>Sat, 20 Feb 2016 22:40:49 -0500</pubDate>
+      
+      <guid>http://www.jonlz.com/projects/gif-memory-game/</guid>
+      <description>Overview Welcome, if you haven&amp;rsquo;t already please check out the GitHub repo and have it open (or the project built and open) as you read along.This guide is intended to be a companion post that will walk through each commit and discuss the development process.
+What is this? An animated GIF memory game iOS app. The GIFs will be pulled from Giphy with some user customization based on trends provided by Twitter.</description>
+    </item>
+    
+  </channel>
+</rss>
