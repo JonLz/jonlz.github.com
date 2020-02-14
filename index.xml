@@ -30,5 +30,14 @@
 This app will hit on many iOS fundamental concepts and help you understand how the pieces comes together to build a simple app.</description>
     </item>
     
+    <item>
+      <title>First blog post</title>
+      <link>https://jonlz.com/posts/first/</link>
+      <pubDate>Thu, 13 Feb 2020 21:48:14 -0500</pubDate>
+      
+      <guid>https://jonlz.com/posts/first/</guid>
+      <description>First blog post </description>
+    </item>
+    
   </channel>
 </rss>
