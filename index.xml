@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jon Lazar</title>
-    <link>http://www.jonlz.com/</link>
+    <link>https://jonlz.com/</link>
     <description>Recent content on Jon Lazar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 13 Feb 2020 22:40:49 -0500</lastBuildDate>
     
-	<atom:link href="http://www.jonlz.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jonlz.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>http://www.jonlz.com/about/</link>
+      <link>https://jonlz.com/about/</link>
       <pubDate>Thu, 13 Feb 2020 22:40:49 -0500</pubDate>
       
-      <guid>http://www.jonlz.com/about/</guid>
+      <guid>https://jonlz.com/about/</guid>
       <description>Hi, I&amp;rsquo;m Jon Lazar. I work on mobile apps and this is where I write about related topics.</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>http://www.jonlz.com/projects/</link>
+      <link>https://jonlz.com/projects/</link>
       <pubDate>Thu, 13 Feb 2020 22:40:49 -0500</pubDate>
       
-      <guid>http://www.jonlz.com/projects/</guid>
+      <guid>https://jonlz.com/projects/</guid>
       <description>GIF Memory Game This is a project intended to help beginner iOS developers learn the ropes. When I was first learning, I found it difficult to go from start to finish on a project. The hope is that by seeing a completed app you can drill down to any piece and understand exactly how it works.
 This app will hit on many iOS fundamental concepts and help you understand how the pieces comes together to build a simple app.</description>
     </item>
