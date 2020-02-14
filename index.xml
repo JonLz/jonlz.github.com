@@ -31,6 +31,15 @@ This app will hit on many iOS fundamental concepts and help you understand how t
     </item>
     
     <item>
+      <title>First blog post</title>
+      <link>http://www.jonlz.com/posts/first/</link>
+      <pubDate>Thu, 13 Feb 2020 21:48:14 -0500</pubDate>
+      
+      <guid>http://www.jonlz.com/posts/first/</guid>
+      <description>First blog post </description>
+    </item>
+    
+    <item>
       <title>GIF Memory Game</title>
       <link>http://www.jonlz.com/projects/gif-memory-game/</link>
       <pubDate>Sat, 20 Feb 2016 22:40:49 -0500</pubDate>
