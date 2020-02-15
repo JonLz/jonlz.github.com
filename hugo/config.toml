@@ -2,7 +2,7 @@ baseURL = "https://jonlz.com/"
 languagecode = "en"
 defaultcontentlanguage = "en"
 title = "Jon Lazar"
-theme = "hugo-code"
+theme = "hugo-coder"
 
 paginate = 20
 canonifyurls = true
